@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/9dc4e05140.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <title>Calculator</title>
+    <style>
+        button:hover{
+            background-color: rgb(171, 218, 215);
+            border:none;
+            border-radius: 25px 25px 25px 25px;
+            /* transform: scale(1.2); */
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="flex flex-col m-32 w-[2000px] gap-3 border-none pr-0"> -->
+    <div class="border-none border-blue-900 w-[610px] p-7 bg-blue-300 mt-5 rounded-[50px] m-8">
+        <div class="w-[545px] h-28 bg-blue-200 rounded-3xl  border-none m-1">
+            <div class="flex flex-col">
+                <p id="in1" class="text-black text-2xl p-3"></p>
+                <p id="in2" class="text-black text-[16px] p-3 m-3"></p>
+            </div>
+            <script>
+                let num1, num, num2, operator,result;
+                document.getElementById("in1").value='';
+                document.getElementById("in2").value='';
+                function click_digit(value){
+                        // console.log(value)
+                    document.getElementById("in1").innerText+=value
+                    num=value;
+                }
+                function operatorAssign(op){
+                    operator=op
+                    num1=document.getElementById("in1").innerText 
+                    document.getElementById("in2").innerText=num+operator
+                    document.getElementById("in1").innerText=''
+                }
+                function calculate(){      
+                    num2=document.getElementById("in1").innerText
+                    document.getElementById("in2").innerText+=num2+"="
+                    document.getElementById("in1").innerText=''
+                    if(operator=='+'){
+                        result=Number(num1)+Number(num2)
+                    }
+                    else if(operator=='-'){
+                        result=Number(num1)-Number(num2)
+                    }
+                    else if(operator=='/'){
+                        result=Number(num1)/Number(num2)
+                    }
+                    else if(operator=='*'){
+                        result = Number(num1)*Number(num2)
+                    }
+                    else if(operator=='%'){
+                        result = Number(num1)%Number(num2)
+                    }
+                document.getElementById("in1").innerText=result
+                }
+                function clearScreen(){
+                    document.getElementById("in1").innerText='';
+                    document.getElementById("in2").innerText='';
+                }
+            </script>
+        </div>
+        <!-- <div class="flex flex-row gap-3 w-[1500px] h-52 "> -->
+        <div class="flex flex-row gap-1">
+            <div class=" border-none text-center rounded-3xl m-1">
+                <button onclick="click_digit(7)" id="input" class="w-[126px] h-20 text-3xl text-black p-5">7</button>
+            </div>
+            <div class="  border-none text-center rounded-3xl m-1">
+                <button onclick="click_digit(8)" id="input" class="w-[126px] h-20 text-3xl text-black p-5">8</button>
+            </div>
+            <div class="  border-none text-center rounded-3xl m-1">
+                <button onclick="click_digit(9)" id="input" class="w-[126px] h-20 text-3xl text-black p-5">9</button>
+            </div>
+            <div class="  border-none text-center rounded-3xl m-1">
+                <button onclick="operatorAssign('/')" id="input" class="w-[126px] h-20 text-3xl text-black p-5">/</button>
+            </div>
+        </div>
+                   <!-- </div> -->
+        <div class="flex flex-row gap-1">
+            <div class="  border-none text-center rounded-3xl m-1">
+                <button onclick="click_digit(4)" id="input" class="w-[126px] h-20 text-3xl text-black p-5">4</button>
+            </div>
+            <div class="  border-none text-center rounded-3xl m-1">
+                <button onclick="click_digit(5)" id="input"  class="w-[126px] h-20 text-3xl text-black p-5">5</button>
+            </div>
+            <div class="  border-none text-center rounded-3xl m-1">
+                <button onclick="click_digit(6)" id="input" class="w-[126px] h-20 text-3xl text-black p-5">6</button>
+                </div>
+            <div class="  border-none text-center rounded-3xl m-1">
+                <button onclick="operatorAssign('*')" id="input" class="w-[126px] h-20 text-3xl text-black p-5">*</button>
+                </div>
+        </div>
+        <div class="flex flex-row gap-1">
+            <div class="  border-none text-center rounded-3xl m-1">
+                <button onclick="click_digit(1)" id="input" class="w-[126px] h-20 text-3xl text-black p-5">1</button>
+                </div>
+            <div class="  border-none text-center rounded-3xl m-1">
+                <button onclick="click_digit(2)" id="input" class="w-[126px] h-20 text-3xl text-black p-5">2</button>
+                </div>
+            <div class="  border-none text-center rounded-3xl m-1">
+                <button onclick="click_digit(3)" id="input" class="w-[126px] h-20 text-3xl text-black p-5">3</button>
+                </div>
+            <div class="  border-none text-center rounded-3xl m-1">
+                <button onclick="operatorAssign('-')" id="input" class="w-[126px] h-20 text-3xl text-black p-5">-</button>
+                </div>
+        </div>
+        <div class="flex flex-row gap-1">
+            <div class=" border-none text-center rounded-3xl m-1">
+                <button id="input" onclick="click_digit(0)" class="w-[126px] h-20 text-3xl text-black  p-5">0</button>
+                </div>
+            <div class=" border-none text-center rounded-3xl m-1">
+                <button id="dot" onclick="click_digit('.')" class="w-[126px] h-20 text-3xl text-black  p-5">.</button>
+                </div>
+            <div class=" border-none text-center rounded-3xl m-1">
+                <button id="percent" onclick="operatorAssign('%')" class="w-[126px] h-20 text-3xl text-black  p-5">%</button>
+                </div>
+            <div class=" border-none text-center rounded-3xl m-1">
+                <button onclick="operatorAssign('+')" id="input" class="w-[126px] h-20 text-3xl text-black  p-5">+</button>
+            </div>
+        </div>
+        <div class="flex flex-row gap-1">
+            <div class="border-none bg-blue-500 text-center rounded-3xl m-1">
+                <button id="input" onClick="calculate()" class="w-[268px] h-20 text-3xl text-black p-5">=</button>
+            </div>
+            <div class="border-none text-center rounded-3xl m-1">
+                <button id="input" onClick="clearScreen()" class="w-[126px] h-20 text-3xl text-black  p-5">CE</button>
+            </div>
+            <div class="border-none text-center rounded-3xl m-1">
+                <button id="input" onClick="clearScreen()" class="w-[126px] h-20 text-3xl text-black  p-5">C</button>
+            </div>        
+        <!-- </div> -->
+        </div>
+    </div>
+</body>
+</html>
