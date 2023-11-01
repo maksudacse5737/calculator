@@ -5,7 +5,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/maksudacse5737/calculator.git'
                 echo 'Building..'
             }
         }
@@ -24,7 +23,6 @@ pipeline {
 // Script //
 node {
     stage('Build') {
-        git 'https://github.com/maksudacse5737/calculator.git'
         echo 'Building....'
     }
     stage('Test') {
