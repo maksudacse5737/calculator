@@ -5,6 +5,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                pwd
+                ls
                 npm run build
                 echo 'building..'
                 echo 'schedule added'
