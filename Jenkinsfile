@@ -7,7 +7,7 @@ pipeline {
             steps {
                 npm run build
                 echo 'building..'
-                echo 'schedule added in poll SCM'
+                echo 'schedule added'
             }
         }
         stage('Test') {
