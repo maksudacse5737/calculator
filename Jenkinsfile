@@ -5,9 +5,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                pwd
-                ls
-                npm run build
+                sh 'pwd'
+                sh 'ls'
+                sh 'npm run build'
                 echo 'building..'
                 echo 'schedule added'
             }
